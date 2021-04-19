@@ -4,25 +4,23 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author Administrator
- * @version 1.0
- * @create 2018-09-12 14:59
- **/
+ * @ClassName: com.xuecheng.framework.domain.cms.request.QueryPageTemplateRequest.java
+ * @Description:
+ * @author: heyz
+ * @date:  2021/4/16 15:50
+ * @version V1.0
+ */
 @Data
-public class QueryPageRequest {
+public class QueryPageTemplateRequest {
     //接收页面查询的查询条件
     //站点id
     //站点id
     @ApiModelProperty("站点id")
     private String siteId;
-    //页面ID
-    private String pageId;
-    //页面名称
-    private String pageName;
-    //别名
-    private String pageAliase;
     //模版id
+    @ApiModelProperty("模版id")
     private String templateId;
-    //类型（静态/动态）
-    private String pageType;
+    //模版名称
+    @ApiModelProperty("模版名称")
+    private String templateName;
 }

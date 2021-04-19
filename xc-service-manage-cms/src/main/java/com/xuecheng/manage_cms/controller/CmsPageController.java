@@ -3,7 +3,6 @@ package com.xuecheng.manage_cms.controller;
 import com.xuecheng.api.cms.CmsPageControllerApi;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
-import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.manage_cms.service.PageService;
@@ -30,9 +29,9 @@ public class CmsPageController implements CmsPageControllerApi {
         //定义queryResult
         QueryResult<CmsPage> queryResult =new QueryResult<>();
         List<CmsPage> list = new ArrayList<>();
-        CmsPage cmsPage = new CmsPage();
-        cmsPage.setPageName("测试页面");
-        list.add(cmsPage);
+        CmsPage cmsTemplate = new CmsPage();
+        cmsTemplate.setPageName("测试页面");
+        list.add(cmsTemplate);
         queryResult.setList(list);
         queryResult.setTotal(1);
 

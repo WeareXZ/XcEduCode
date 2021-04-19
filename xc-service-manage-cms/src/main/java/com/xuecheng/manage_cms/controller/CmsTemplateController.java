@@ -1,88 +1,66 @@
 package com.xuecheng.manage_cms.controller;
 
-import com.xuecheng.api.cms.CmsPageControllerApi;
-import com.xuecheng.framework.domain.cms.CmsPage;
-import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
-import com.xuecheng.framework.domain.cms.response.CmsCode;
+import com.xuecheng.api.cms.CmsTemplateControllerApi;
+import com.xuecheng.framework.domain.cms.CmsTemplate;
+import com.xuecheng.framework.domain.cms.request.QueryPageTemplateRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPageTemplateResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
-import com.xuecheng.manage_cms.service.PageService;
+import com.xuecheng.manage_cms.service.PageTemplateService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 /**
- * @author Administrator
- * @version 1.0
- * @create 2018-09-12 17:24
- **/
+ * @ClassName: com.xuecheng.manage_cms.controller.CmsTemplateController.java
+ * @Description:页面模板controller层
+ * @author: heyz
+ * @date:  2021/4/16 15:57
+ * @version V1.0
+ */
 @RestController
-@RequestMapping("/cms/page")
-public class CmsPageController implements CmsPageControllerApi {
+@RequestMapping("/cms/template")
+public class CmsTemplateController implements CmsTemplateControllerApi {
 
     @Autowired
-    PageService pageService;
+    private PageTemplateService pageTemplateService;
+
+    @Autowired
+    private GridFsTemplate gridFsTemplate;
 
     @Override
     @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size")int size,QueryPageRequest queryPageRequest) {
-
-/*        //暂时用静态数据
-        //定义queryResult
-        QueryResult<CmsPage> queryResult =new QueryResult<>();
-        List<CmsPage> list = new ArrayList<>();
-        CmsPage cmsPage = new CmsPage();
-        cmsPage.setPageName("测试页面");
-        list.add(cmsPage);
-        queryResult.setList(list);
-        queryResult.setTotal(1);
-
-        QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
-        return queryResponseResult;*/
-        //调用service
-        return pageService.findList(page,size,queryPageRequest);
+    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageTemplateRequest queryPageTemplateRequest) {
+        return pageTemplateService.findList(page,size,queryPageTemplateRequest);
     }
 
-    /**
-     * @Description:新增页面
-     * @author: heyz
-     * @date:  2021/4/13 16:32
-     */
     @Override
     @PostMapping("/add")
-    public CmsPageResult add(@RequestBody CmsPage cmsPage) {
-        return pageService.add(cmsPage);
+    public CmsPageTemplateResult add(@RequestBody CmsTemplate cmsTemplate) {
+        return pageTemplateService.add(cmsTemplate);
     }
 
-    /**
-     * @Description:
-     * @author: heyz
-     * @date:  2021/4/13 16:32
-     */
     @Override
-    @PutMapping("/edit/{pageId}")
-    public CmsPageResult edit(@PathVariable("pageId") String pageId,@RequestBody CmsPage cmsPage) {
-        return pageService.edit(pageId,cmsPage);
+    @PutMapping("/edit/{templateId}")
+    public CmsPageTemplateResult edit(@PathVariable("templateId") String templateId,@RequestBody CmsTemplate cmsTemplate) {
+        return pageTemplateService.edit(templateId,cmsTemplate);
     }
 
-    /**
-     * @Description:
-     * @author: heyz
-     * @date:  2021/4/13 16:32
-     */
     @Override
-    @GetMapping("/findByPageId/{pageId}" )
-    public CmsPageResult findById(@PathVariable("pageId") String pageId) {
-        return pageService.findById(pageId);
+    @GetMapping("/findByTemplateId/{templateId}" )
+    public CmsPageTemplateResult findById(@PathVariable("templateId") String templateId) {
+        return pageTemplateService.findById(templateId);
     }
 
-    /**
-     * @Description:
-     * @author: heyz
-     * @date:  2021/4/13 16:32
-     */
     @Override
-    @DeleteMapping("/delete/{pageId}")
-    public CmsPageResult delete(@PathVariable("pageId") String pageId) {
-        return pageService.delete(pageId);
+    @DeleteMapping("/delete/{templateId}")
+    public CmsPageTemplateResult delete(@PathVariable("templateId") String templateId) {
+        return pageTemplateService.delete(templateId);
     }
+
 }

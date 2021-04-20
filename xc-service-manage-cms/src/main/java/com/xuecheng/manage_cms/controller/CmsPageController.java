@@ -5,7 +5,9 @@ import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
+import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.service.PageService;
+import net.bytebuddy.implementation.bind.annotation.Pipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -83,5 +85,17 @@ public class CmsPageController implements CmsPageControllerApi {
     @DeleteMapping("/delete/{pageId}")
     public CmsPageResult delete(@PathVariable("pageId") String pageId) {
         return pageService.delete(pageId);
+    }
+
+
+    /**
+     * @Description:发布页面
+     * @author: heyz
+     * @date:  2021/4/20 16:31
+     */
+    @Override
+    @PostMapping("/post/{pageId}")
+    public ResponseResult post(@PathVariable("pageId") String pageId) {
+        return pageService.post(pageId);
     }
 }

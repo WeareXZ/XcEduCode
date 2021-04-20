@@ -4,6 +4,7 @@ import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
+import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.*;
 
 @Api(value="cms页面管理接口",description = "cms页面管理接口，提供页面的增、删、改、查")
@@ -49,5 +50,14 @@ public interface CmsPageControllerApi {
     @ApiOperation("删除页面")
     @ApiImplicitParam(name = "pageId",value = "页面Id",required = true,paramType="path",dataType="string")
     public CmsPageResult delete(String pageId);
+
+    /**
+     * @Description:发布页面
+     * @author: heyz
+     * @date:  2021/4/20 16:29
+     */
+    @ApiOperation("发布页面")
+    @ApiImplicitParam(name = "pageId",value = "页面Id",required = true,paramType="path",dataType="string")
+    public ResponseResult post(String pageId);
 
 }

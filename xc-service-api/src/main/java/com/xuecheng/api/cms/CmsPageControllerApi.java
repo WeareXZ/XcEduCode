@@ -24,6 +24,7 @@ public interface CmsPageControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("新增页面")
+    @ApiImplicitParam(name = "cmsPage",value = "页面对象",required = true,paramType="path",dataType="CmsPage")
     public CmsPageResult add(CmsPage cmsPage);
 
     /**
@@ -32,6 +33,7 @@ public interface CmsPageControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("修改页面")
+    @ApiImplicitParam(name = "pageId",value = "页面Id",required = true,paramType="path",dataType="string")
     public CmsPageResult edit(String pageId,CmsPage cmsPage);
 
     /**
@@ -40,6 +42,7 @@ public interface CmsPageControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("根据id查询页面")
+    @ApiImplicitParam(name = "pageId",value = "页面Id",required = true,paramType="path",dataType="string")
     public CmsPageResult findById(String pageId);
 
     /**

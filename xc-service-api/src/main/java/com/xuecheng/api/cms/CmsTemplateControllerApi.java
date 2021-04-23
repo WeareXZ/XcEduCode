@@ -28,6 +28,7 @@ public interface CmsTemplateControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("新增模板")
+    @ApiImplicitParam(name = "cmsTemplate",value = "模板对象",required = true,paramType="path",dataType="CmsTemplate")
     public CmsPageTemplateResult add(CmsTemplate cmsTemplate);
 
     /**
@@ -36,6 +37,7 @@ public interface CmsTemplateControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("修改模板")
+    @ApiImplicitParam(name = "pageId",value = "模板Id",required = true,paramType="path",dataType="string")
     public CmsPageTemplateResult edit(String templateId, CmsTemplate cmsTemplate);
 
     /**
@@ -44,6 +46,7 @@ public interface CmsTemplateControllerApi {
      * @date:  2021/4/13 16:26
      */
     @ApiOperation("根据id查询模板")
+    @ApiImplicitParam(name = "pageId",value = "模板Id",required = true,paramType="path",dataType="string")
     public CmsPageTemplateResult findById(String templateId);
 
     /**

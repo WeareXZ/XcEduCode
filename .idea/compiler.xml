@@ -10,9 +10,12 @@
         <module name="xc-framework-common" />
         <module name="xc-framework-model" />
         <module name="xc-framework-utils" />
+        <module name="xc-govern-center" />
         <module name="xc-service-api" />
+        <module name="xc-service-base-filesystem" />
         <module name="xc-service-manage-cms" />
-        <module name="XcEduCode" />
+        <module name="xc-service-manage-cms-client" />
+        <module name="xc-service-manage-course" />
       </profile>
     </annotationProcessing>
   </component>
@@ -21,8 +24,12 @@
       <module name="xc-framework-common" options="-parameters" />
       <module name="xc-framework-model" options="-parameters" />
       <module name="xc-framework-utils" options="-parameters" />
+      <module name="xc-govern-center" options="-parameters" />
       <module name="xc-service-api" options="-parameters" />
+      <module name="xc-service-base-filesystem" options="-parameters" />
       <module name="xc-service-manage-cms" options="-parameters" />
+      <module name="xc-service-manage-cms-client" options="-parameters" />
+      <module name="xc-service-manage-course" options="-parameters" />
     </option>
   </component>
 </project>

@@ -128,8 +128,8 @@ public class PageService {
             //校验页面是否存在，根据页面名称、站点Id、页面webpath查询
             CmsPage page = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
             if(page != null){
-                //校验页面是否存在，已存在则抛出异常
-                ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTSNAME);
+                //校验页面是否存在，已存在则更新
+                return this.edit(page.getPageId(),cmsPage);
             }
             cmsPage.setPageId(null);//添加页面主键由spring data 自动生成
             cmsPageRepository.save(cmsPage);

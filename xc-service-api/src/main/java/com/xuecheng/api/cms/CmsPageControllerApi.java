@@ -3,6 +3,7 @@ package com.xuecheng.api.cms;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.*;
@@ -63,4 +64,7 @@ public interface CmsPageControllerApi {
     @ApiImplicitParam(name = "pageId",value = "页面Id",required = true,paramType="path",dataType="string")
     public ResponseResult post(String pageId);
 
+    @ApiOperation("一键发布页面")
+    @ApiImplicitParam(name = "cmsPage", value = "课程对象", required = true, dataType = "CmsPage")
+    public CmsPostPageResult postPageQuick(CmsPage cmsPage);
 }

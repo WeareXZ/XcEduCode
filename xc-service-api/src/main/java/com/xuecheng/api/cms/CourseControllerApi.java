@@ -1,5 +1,7 @@
 package com.xuecheng.api.cms;
 
+import com.xuecheng.framework.domain.cms.CmsPage;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.domain.cms.response.CoursePublishResult;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CourseMarket;
@@ -106,4 +108,8 @@ public interface CourseControllerApi {
     @ApiOperation("预览课程")
     @ApiImplicitParam(name = "id", value = "课程id", required = true, dataType = "string")
     public CoursePublishResult preview(String id);
+
+    @ApiOperation("发布课程")
+    @ApiImplicitParam(name = "id", value = "课程id", required = true, dataType = "string")
+    public CoursePublishResult publish(String id);
 }

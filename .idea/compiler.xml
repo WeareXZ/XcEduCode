@@ -16,6 +16,7 @@
         <module name="xc-service-manage-cms" />
         <module name="xc-service-manage-cms-client" />
         <module name="xc-service-manage-course" />
+        <module name="xc-service-search" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="xc-service-manage-cms" options="-parameters" />
       <module name="xc-service-manage-cms-client" options="-parameters" />
       <module name="xc-service-manage-course" options="-parameters" />
+      <module name="xc-service-search" options="-parameters" />
     </option>
   </component>
 </project>

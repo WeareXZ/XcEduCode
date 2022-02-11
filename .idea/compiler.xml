@@ -7,19 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="xc-framework-common" />
+        <module name="xc-service-manage-course" />
+        <module name="xc-service-ucenter" />
         <module name="xc-framework-model" />
         <module name="xc-framework-utils" />
-        <module name="xc-govern-center" />
         <module name="xc-service-api" />
         <module name="xc-service-base-filesystem" />
+        <module name="xc-framework-common" />
         <module name="xc-service-learning" />
-        <module name="xc-service-manage-cms" />
-        <module name="xc-service-manage-cms-client" />
-        <module name="xc-service-manage-course" />
+        <module name="xc-service-ucenter-auth" />
+        <module name="xc-govern-center" />
         <module name="xc-service-manage-media" />
-        <module name="xc-service-manage-media-processor" />
+        <module name="xc-service-manage-cms" />
         <module name="xc-service-search" />
+        <module name="xc-service-manage-cms-client" />
+        <module name="xc-service-manage-media-processor" />
       </profile>
     </annotationProcessing>
   </component>
@@ -38,6 +40,8 @@
       <module name="xc-service-manage-media" options="-parameters" />
       <module name="xc-service-manage-media-processor" options="-parameters" />
       <module name="xc-service-search" options="-parameters" />
+      <module name="xc-service-ucenter" options="-parameters" />
+      <module name="xc-service-ucenter-auth" options="-parameters" />
     </option>
   </component>
 </project>

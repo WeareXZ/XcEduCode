@@ -14,3 +14,36 @@ eureka:
     eviction-interval-timer-in-ms: 60000 # 服务注册表清理间隔（单位毫秒，默认是 60*1000 ）
   instance:
     hostname: ${EUREKA_DOMAIN:eureka01}
+
+zuul:
+  routes:
+    xc-service-learning: #路由名称，名称任意，保持所有路由名称唯一
+      path: /learning/**
+      serviceId: xc-service-learning #指定服务id，从Eureka中找到服务的ip和端口
+      strip-prefix: false
+      sensitiveHeaders:
+    manage-course:
+      path: /course/**
+      serviceId: xc-service-manage-course
+      strip-prefix: false
+      sensitiveHeaders:
+    manage-cms:
+      path: /cms/**
+      serviceId: xc-service-manage-cms
+      strip-prefix: false
+      sensitiveHeaders:
+    manage-sys:
+      path: /sys/**
+      serviceId: xc-service-manage-cms
+      strip-prefix: false
+      sensitiveHeaders:
+    service-ucenter:
+      path: /ucenter/**
+      serviceId: xc-service-ucenter
+      sensitiveHeaders:
+      strip-prefix: false
+    xc-service-manage-order:
+      path: /order/**
+      serviceId: xc-service-manage-order
+      sensitiveHeaders:
+      strip-prefix: false

@@ -50,22 +50,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             //返回空给spring security表示用户不存在
             return null;
         }
-//        XcUserExt userext = new XcUserExt();
-//        userext.setUsername("itcast");
-//        userext.setPassword(new BCryptPasswordEncoder().encode("123"));
         userext.setPermissions(new ArrayList<XcMenu>());//权限暂时用静态的
-
         //取出正确密码（hash值）
         String password = userext.getPassword();
-        //这里暂时使用静态密码
-//       String password ="123";
         //用户权限，这里暂时使用静态数据，最终会从数据库读取
         //从数据库获取权限
         List<XcMenu> permissions = userext.getPermissions();
         List<String> user_permission = new ArrayList<>();
         permissions.forEach(item-> user_permission.add(item.getCode()));
-//        user_permission.add("course_get_baseinfo");
-//        user_permission.add("course_find_pic");
         String user_permission_string  = StringUtils.join(user_permission.toArray(), ",");
         UserJwt userDetails = new UserJwt(username,
                 password,
@@ -75,10 +67,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         userDetails.setCompanyId(userext.getCompanyId());//所属企业
         userDetails.setName(userext.getName());//用户名称
         userDetails.setUserpic(userext.getUserpic());//用户头像
-       /* UserDetails userDetails = new org.springframework.security.core.userdetails.User(username,
-                password,
-                AuthorityUtils.commaSeparatedStringToAuthorityList(""));*/
-//                AuthorityUtils.createAuthorityList("course_get_baseinfo","course_get_list"));
         return userDetails;
     }
 }
